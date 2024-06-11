@@ -17,7 +17,6 @@ app.use(bodyParser.json());
 
 // Routes Middleware
 app.use("/api/users", userRoute);
-app.use("/api/users", userRoute);
 
 //Routes
 app.get("/", (req, res) => {
