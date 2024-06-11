@@ -1,7 +1,14 @@
 const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
-const bcrypt = require("bcryptjs");
+// const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
 
+//Generate token
+const generateToken = (id) => {
+    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "1d" });
+};
+
+//Register User
 const registerUser = asyncHandler(async (req, res) => {
     const { name, email, password } = req.body;
 
@@ -30,20 +37,33 @@ const registerUser = asyncHandler(async (req, res) => {
         password,
     });
 
+    //   Generate Token
+    const token = generateToken(user._id);
+
+    // Send HTTP-only cookie
+    res.cookie("token", token, {
+        path: "/",
+        httpOnly: true,
+        expires: new Date(Date.now() + 1000 * 86400), // 1 day
+        sameSite: "none",
+        secure: true,
+    });
+
     if (user) {
         const { _id, name, email, photo, phone, bio } = user;
         res.status(201).json({
-          _id,
-          name,
-          email,
-          photo,
-          phone,
-          bio,
+            _id,
+            name,
+            email,
+            photo,
+            phone,
+            bio,
+            token
         });
-      } else {
+    } else {
         res.status(400);
         throw new Error("Invalid user data");
-      }
+    }
 
 
 
@@ -51,6 +71,13 @@ const registerUser = asyncHandler(async (req, res) => {
 
 
 });
+
+//Login User
+const loginUser = asyncHandler(async (req, res) => {
+    res.send("Login Page")
+  });
+
 module.exports = {
-    registerUser
+    registerUser,
+    loginUser
 }
