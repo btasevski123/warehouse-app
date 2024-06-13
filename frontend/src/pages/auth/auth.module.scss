@@ -17,6 +17,18 @@
       color: var(--color-danger);
       text-align: center;
     }
+
+    .register {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      margin-top: 1rem;
+
+      a {
+        color: blue
+      }
+    }
   }
 
   @keyframes slide-up {
