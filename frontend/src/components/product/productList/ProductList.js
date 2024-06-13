@@ -49,7 +49,6 @@ const ProductList = ({ products, isLoading }) => {
         },
         {
           label: "Cancel",
-          // onClick: () => alert('Click No')
         },
       ],
     });
