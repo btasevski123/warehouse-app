@@ -18,7 +18,7 @@ const initialState = {
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [setIsLoading] = useState(false);
+  const [, setIsLoading ] = useState(false);
   const [formData, setformData] = useState(initialState);
   const { email, password } = formData;
 
