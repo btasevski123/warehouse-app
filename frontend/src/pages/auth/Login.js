@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { toast } from "react-toastify";
 import { loginUser, validateEmail } from "../../services/authService";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
-import Loader from "../../components/loader/Loader";
 
 const initialState = {
   email: "",
@@ -19,7 +18,7 @@ const initialState = {
 const Login = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [setIsLoading] = useState(false);
   const [formData, setformData] = useState(initialState);
   const { email, password } = formData;
 
@@ -57,7 +56,6 @@ const Login = () => {
   };
   return (
     <div className={`container ${styles.auth}`}>
-      {isLoading && <Loader />}
       <Card>
         <div className={styles.form}>
           <div className="--flex-center">

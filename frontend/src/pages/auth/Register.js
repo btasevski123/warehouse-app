@@ -7,7 +7,6 @@ import { registerUser, validateEmail } from "../../services/authService";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { SET_LOGIN, SET_NAME } from "../../redux/features/auth/authSlice";
-import Loader from "../../components/loader/Loader";
 import { TextField, Button } from "@mui/material";
 
 const initialState = {
@@ -20,7 +19,7 @@ const initialState = {
 const Register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [isLoading, setIsLoading] = useState(false);
+  const [ setIsLoading] = useState(false);
   const [formData, setformData] = useState(initialState);
   const { name, email, password, password2 } = formData;
 
@@ -66,7 +65,6 @@ const Register = () => {
 
   return (
     <div className={`container ${styles.auth}`}>
-      {isLoading && <Loader />}
       <Card>
         <div className={styles.form}>
           <div className="--flex-center">
