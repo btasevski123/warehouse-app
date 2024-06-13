@@ -2,7 +2,6 @@ import React from "react";
 import styles from "./auth.module.scss";
 import { BiLogIn } from "react-icons/bi";
 import Card from "../../components/card/Card";
-import { Link } from "react-router-dom";
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 
