@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { SpinnerImg } from "../../loader/Loader";
 import "./productList.scss";
 import { FaEdit, FaTrashAlt } from "react-icons/fa";
 import { AiOutlineEye } from "react-icons/ai";
@@ -92,8 +91,6 @@ const ProductList = ({ products, isLoading }) => {
             />
           </span>
         </div>
-
-        {isLoading && <SpinnerImg />}
 
         <div className="table">
           {!isLoading && products.length === 0 ? (

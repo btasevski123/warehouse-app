@@ -5,7 +5,6 @@ import useRedirectLoggedOutUser from "../../../customHook/useRedirectLoggedOutUs
 import { selectIsLoggedIn } from "../../../redux/features/auth/authSlice";
 import { getProduct } from "../../../redux/features/product/productSlice";
 import Card from "../../card/Card";
-import { SpinnerImg } from "../../loader/Loader";
 import "./ProductDetail.scss";
 import DOMPurify from "dompurify";
 
@@ -16,7 +15,7 @@ const ProductDetail = () => {
   const { id } = useParams();
 
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const { product, isLoading, isError, message } = useSelector(
+  const { product, isError, message } = useSelector(
     (state) => state.product
   );
 
@@ -41,7 +40,6 @@ const ProductDetail = () => {
     <div className="product-detail">
       <h3 className="--mt">Product Detail</h3>
       <Card cardClass="card">
-        {isLoading && <SpinnerImg />}
         {product && (
           <div className="detail">
             <Card cardClass="group">
