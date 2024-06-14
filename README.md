@@ -1,6 +1,8 @@
 
 # MERN Stack Application
 
+live link: https://warehouse-app-dusky.vercel.app/
+
 ## Description
 This is a MERN (MongoDB, Express.js, React.js, Node.js) stack application designed for managing a warehouse. The application allows users to manage inventory, orders, and other warehouse operations efficiently.
 
