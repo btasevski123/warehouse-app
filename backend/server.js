@@ -18,7 +18,7 @@ app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(
   cors({
-    origin: ["http://localhost:3000", "https://warehouse-app-dusky.vercel.app"],
+    origin: ["http://localhost:3000", "https://warehouse-app-sandy.vercel.app"],
     credentials: true,
   })
 );
